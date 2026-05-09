@@ -25,7 +25,7 @@ public class CameraFollow : MonoBehaviour
         currentX += Input.GetAxis("Mouse X") * sensivity * Time.deltaTime;
         currentY += Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
         currentY = Mathf.Clamp(currentY, YMin, YMax);
-        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+        Quaternion rotation = Quaternion.Euler(-currentY, currentX, 0);
         Vector3 desiredPosition = target.position +rotation*offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
